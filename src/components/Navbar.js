@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import { Button } from "react-bootstrap/";
+ 
 
 function Navbar() {
   return (
@@ -8,7 +10,7 @@ function Navbar() {
       </Link>
 
       <Link to="/receivers">
-        <button>Receivers</button>
+         <Button>Receivers</Button>
       </Link>
     </nav>
   );
