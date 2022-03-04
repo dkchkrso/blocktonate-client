@@ -9,8 +9,16 @@ function ReceiverListPage() {
   const [receivers, setReceivers] = useState([]);
 
   const getAllReceivers = () => {
+    // Get the token from the localStorage
+    const storedToken = localStorage.getItem("authToken");
+
+    // Send the token through the request "Authorization" Headers
+
     axios
-      .get(`${API_URL}/api/receivers`)
+      .get(
+        `${API_URL}/api/receivers`, 
+      { headers: { Authorization: `Bearer ${storedToken}` } }
+      )
       .then((response) => setReceivers(response.data))
       .catch((error) => console.log(error));
   };

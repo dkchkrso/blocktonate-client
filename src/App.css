@@ -36,3 +36,26 @@
     transform: rotate(360deg);
   }
 }
+
+.walletCard {
+  display: inline-block;
+}
+
+.accountInfoDisplay {
+  display: inline-block;
+  margin: 0px;
+}
+
+
+.accountInfoDisplay {
+  display: inline-block;
+  padding: 0px;
+  margin: 0px;
+  font-size: 12px;
+}
+
+.balanceDisplay {
+  padding: 0px;
+  margin: 0px;
+}
+

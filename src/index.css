@@ -1,37 +1,48 @@
 /* REACT DEFAULT CSS */
 
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
 /* IRONHACK TEMPLATE CSS */
 /* index.css */
 
 body {
   margin: 0;
+  font-family: "Roboto", sans-serif;
 }
+
+.SignupPage,
+.LoginPage {
+  background: #f9eec3;
+  border: 1px solid grey;
+  box-shadow: 0px 2px 3px grey;
+  width: 400px;
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 4px;
+  background-color: #608dd5;
+}
+
+
+
+.SignupPage form,
+.LoginPage form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.LoginPage {
+  background-color: #94a7c8;
+}
+
+Link {
+  text-decoration: none;
+}
+
 
 a {
   list-style: none;
   color: black;
-}
-
-button,
-select {
-  padding: 5px 10px;
-  min-width: 50px;
-  margin: 5px;
-  font-size: 18px;
 }
 
 label {

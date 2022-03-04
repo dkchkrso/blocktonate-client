@@ -14,7 +14,7 @@ function AddReceiver(props) {
   const [imageURL, setImageURL] = useState(
     "https://th.bing.com/th/id/R.d4cd92a0789ceeb33a2d166622c900ca?rik=6CFrn23DW%2fYgeA&riu=http%3a%2f%2fwww.millerrosenfalck.com%2fwp-content%2fuploads%2f2020%2f01%2fdefault-profile-300x300.png&ehk=BOb5Kx9NtLh%2fVKMqdEEfOHSAC1GVVcqjIBqdPG7bBNw%3d&risl=&pid=ImgRaw&r=0&sres=1&sresct=1"
   );
-console.log(props)
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -29,8 +29,13 @@ console.log(props)
       imageURL,
     };
 
+    // Get the token from the localStorage
+    const storedToken = localStorage.getItem("authToken");
+
     axios
-      .post(`${API_URL}/api/receiver`, requestBody)
+      .post(`${API_URL}/api/receiver`, requestBody, {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      })
       .then((response) => {
         // Reset the state
         setName("");
@@ -44,7 +49,7 @@ console.log(props)
           "https://th.bing.com/th/id/R.d4cd92a0789ceeb33a2d166622c900ca?rik=6CFrn23DW%2fYgeA&riu=http%3a%2f%2fwww.millerrosenfalck.com%2fwp-content%2fuploads%2f2020%2f01%2fdefault-profile-300x300.png&ehk=BOb5Kx9NtLh%2fVKMqdEEfOHSAC1GVVcqjIBqdPG7bBNw%3d&risl=&pid=ImgRaw&r=0&sres=1&sresct=1"
         );
 
-        props.refreshReceivers(); 
+        props.refreshReceivers();
       })
       .catch((error) => console.log(error));
   };

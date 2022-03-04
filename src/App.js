@@ -4,19 +4,49 @@ import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import FooterBar from "./components/FooterBar";
 import HomePage from "./pages/HomePage";
+import SignupPage from "./pages/SignupPage";
+import LoginPage from "./pages/LoginPage";
+import IsPrivate from "./components/IsPrivate";
+import IsAnon from "./components/IsAnon";
 import ReceiverListPage from "./pages/ReceiverListPage";
-import WalletCard from "./components/WalletCard";
+
 
 function App() {
   return (
     <div className="App">
       <Navbar />
-      <WalletCard />
+
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/receivers" element={<ReceiverListPage />} />
+        
+        <Route
+          path="/receivers"
+          element={
+            <IsPrivate>
+              <ReceiverListPage />
+            </IsPrivate>
+          }
+        />
+        {/* <Route path="/receivers/:id" element={<ReceiverDetailsPage />} />
+        <Route path="/receivers/edit/:id" element={<EditReceiverPage />} /> */}
+        <Route
+          path="/signup"
+          element={
+            <IsAnon>
+              <SignupPage />
+            </IsAnon>
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <IsAnon>
+              <LoginPage />
+            </IsAnon>
+          }
+        />
       </Routes>
-      <FooterBar/>
+      <FooterBar />
     </div>
   );
 }

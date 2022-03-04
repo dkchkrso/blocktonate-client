@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { ethers } from "ethers";
+import { Button } from "react-bootstrap/";
 //import "./WalletCard.css";
 
 const WalletCard = () => {
@@ -57,14 +58,17 @@ const WalletCard = () => {
 
   return (
     <div className="walletCard">
-      <h4> {"Connection to MetaMask using window.ethereum methods"} </h4>
-      <button onClick={connectWalletHandler}>{connButtonText}</button>
-      <div className="accountDisplay">
-        <h3>Address: {defaultAccount}</h3>
+      <div className="accountInfoDisplay">
+          <p>Address: {defaultAccount}</p>
+          <p>Balance: {userBalance}</p>
       </div>
-      <div className="balanceDisplay">
-        <h3>Balance: {userBalance}</h3>
-      </div>
+      <Button
+        className="connectWalletDisplay"
+        variant="success"
+        onClick={connectWalletHandler}
+      >
+        {connButtonText}
+      </Button>
       {errorMessage}
     </div>
   );
