@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { Button } from "react-bootstrap/";
 
 const API_URL = "http://localhost:5005";
 
@@ -42,7 +43,7 @@ function SignupPage(props) {
       <form onSubmit={handleSignupSubmit}>
         <label>Email:</label>
         <input type="email" name="email" value={email} onChange={handleEmail} />
-
+        <br></br>
         <label>Password:</label>
         <input
           type="password"
@@ -50,17 +51,21 @@ function SignupPage(props) {
           value={password}
           onChange={handlePassword}
         />
-
+        <br></br>
         <label>Name:</label>
         <input type="text" name="name" value={name} onChange={handleName} />
-
-        <button type="submit">Sign Up</button>
+        <br></br>
+        <Button type="submit">Sign Up</Button>
       </form>
 
       {errorMessage && <p className="error-message">{errorMessage}</p>}
-
+      <br></br>
+      <br></br>
       <p>Already have account?</p>
-      <Link to={"/login"}> Login</Link>
+      <Link to={"/login"}>
+        {" "}
+        <Button variant="warning">Login</Button>
+      </Link>
     </div>
   );
 }

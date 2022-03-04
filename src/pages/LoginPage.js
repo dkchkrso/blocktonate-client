@@ -2,7 +2,7 @@ import { useState, useContext } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
-
+import { Button } from "react-bootstrap/";
 const API_URL = "http://localhost:5005";
 
 function LoginPage(props) {
@@ -47,7 +47,7 @@ function LoginPage(props) {
       <form onSubmit={handleLoginSubmit}>
         <label>Email:</label>
         <input type="email" name="email" value={email} onChange={handleEmail} />
-
+        <br></br>
         <label>Password:</label>
         <input
           type="password"
@@ -55,13 +55,18 @@ function LoginPage(props) {
           value={password}
           onChange={handlePassword}
         />
-
-        <button type="submit">Login</button>
+        <br></br>
+        <Button type="submit">Login</Button>
       </form>
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
+      <br></br>
 
+      {errorMessage && <p className="error-message">{errorMessage}</p>}
+      <br></br>
       <p>Don't have an account yet?</p>
-      <Link to={"/signup"}> Sign Up</Link>
+
+      <Link to={"/signup"}>
+        <Button variant="warning">Sign up</Button>
+      </Link>
     </div>
   );
 }
