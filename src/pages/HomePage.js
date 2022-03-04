@@ -1,5 +1,5 @@
 import ReceiverListHome from "../components/ReceiverListHome";
-import { Container} from "react-bootstrap/";
+import { Container } from "react-bootstrap/";
 
 function HomePage() {
   return (
@@ -16,6 +16,7 @@ function HomePage() {
       </Container>
 
       <ReceiverListHome />
+      
     </div>
   );
 }

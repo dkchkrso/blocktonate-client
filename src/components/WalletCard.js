@@ -59,8 +59,8 @@ const WalletCard = () => {
   return (
     <div className="walletCard">
       <div className="accountInfoDisplay">
-          <p>Address: {defaultAccount}</p>
-          <p>Balance: {userBalance}</p>
+          {/* <p>Address: {defaultAccount}</p> */}
+          <p>Balance: {userBalance}  </p>
       </div>
       <Button
         className="connectWalletDisplay"

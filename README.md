@@ -1,70 +1,120 @@
-# Getting Started with Create React App
+### BLOCKTONATE
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#### Description of the project
 
-## Available Scripts
+xxx
 
-In the project directory, you can run:
+#### Screenshot
 
-### `npm start`
+![screenshot of the app](https://github.com/ElisaMamolo/the-ocean/blob/master/public/images/screnshoot.PNG)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+#### Wireframes
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Before starting developing we have defined a initial structure of our pages and we have defined a set of MVP functionalities.
 
-### `npm test`
+- Landing page wireframe
+  ![Wireframe landingpage](https://github.com/ElisaMamolo/the-ocean/blob/master/public/images/landingpage.PNG)
+- Landing page wireframe if logged in
+  ![Wireframe if logged in](https://github.com/ElisaMamolo/the-ocean/blob/master/public/images/wireframe2.PNG)
+- User page wireframe
+  ![Wireframe user page](https://github.com/ElisaMamolo/the-ocean/blob/master/public/images/wireframe3.PNG)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### User Stories
 
-### `npm run build`
+- As a user visiting BLOCKTONATE I would like to view all the receivers
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- As a user visiting BLOCKTONATE I would view more details on a selected receiver
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- As a user visiting BLOCKTONATE I would like to be able to Signup
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- As a user visiting BLOCKTONATE I would like to be able to Login
 
-### `npm run eject`
+- As a user visiting BLOCKTONATE I would like to be able to see my profile details
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- As an Admin user I would like to be able to add receivers
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- As an Admin user I would like to be able to delete receivers
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- As an Admin user I would like to be able to edit NFT receivers
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+#### Technologies Used
 
-## Learn More
+:computer:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- React
+- Express
+- MongoDB & Mongoose
+- Heroku - app deployment
+- Bootstrap
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### Models
 
-### Code Splitting
+xxxx To be adjusted xxxx
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+There are 2 types of users, admin and normal users.\
+Admin can create, edit and delete receivers\
+User can donate to a receiver and create a request for donation 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+##### User Model
 
-### Making a Progressive Web App
+Pregenerated with ironlauncher and enhanced\
+Properties:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- username: { type: String, required: true, unique: true,},
+- password: String,
+- isAdmin: { type: Boolean, default: false },
+- Badges: [{ type: Schema.Types.ObjectId, ref: "Badge" }],
 
-### Advanced Configuration
+##### Badge Model
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Properties:\
 
-### Deployment
+- name, { type: String },
+- image: String,
+- owner: { type: Schema.Types.ObjectId, ref: "User" },
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+#### Server routes table(Method, Route or URL, Description as columns)
 
-### `npm run build` fails to minify
+xxxx To be adjusted xxxx
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+|     | route               | description                                                                                                                      |     |
+| --- | ------------------- | -------------------------------------------------------------------------------------------------------------------------------- | --- |
+|     | ---auth---          | -------------------------------------------------------------------------------------------------------------------------------- |     |
+|     | /signup             | get and post for showing the form and to signup                                                                                  |     |
+|     | /login              | get and post for showing the form and to login                                                                                   |     |
+|     | /logout             | logout and redirect to homepage                                                                                                  |     |
+|     | /details            | get user details and show its asset, render auth/user-detail                                                                     |     |
+|     | ---nft---           | -------------------------------------------------------------------------------------------------------------------------------- |     |
+|     | /create             | get and post for creating a new nft redirect to nft/create and index                                                             |     |
+|     | /nfts/:nftId/edit   | get nft by id and edit it with post                                                                                              |     |
+|     | /nfts/:nftId/delete | post to delete an nft by id                                                                                                      |     |
+|     | /nfts/:nftId/buy    | post, validate if can afford and if token is not alrady of the user, then change owner and subtract token from buyer and seller  |     |
+|     | ---index---         | -------------------------------------------------------------------------------------------------------------------------------- |     |
+|     | /                   | get all the nfts and render index                                                                                                |     |
+
+#### Project Link
+
+Link to webpage
+
+#### Future Work
+
+:wrench:
+
+- Work1  
+- Work2
+
+:wrench:
+
+#### Resources
+
+- Bootstrap templates for divs and cards structure
+- Ironlauncher npm package - for generating the structure of the project and for handling authorization
+- ether npm package for connecting to MetaMask wallet
+- 
+
+#### Team members
+
+Christian
+
+#### This is a learning project, if anything needs to be removed please reach out and it will be removed right away.
