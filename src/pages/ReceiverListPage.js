@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import AddReceiver from "../components/AddReceiver";
-
 const API_URL = "http://localhost:5005";
 
 function ReceiverListPage() {

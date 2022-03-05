@@ -2,6 +2,7 @@ import ReceiverListHome from "../components/ReceiverListHome";
 import { Container } from "react-bootstrap/";
 import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";
+import StartPayment from "../components/StartPayment";
 
 function HomePage() {
   
@@ -9,6 +10,7 @@ function HomePage() {
 
   return (
     <div>
+      <StartPayment />
       {!isLoggedIn && (
         <Container>
           <h1>Make a donation, change a life</h1>
