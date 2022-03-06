@@ -34,8 +34,7 @@ function FooterBar() {
                   <i className="fas fa-gem me-3"></i>BLOCKTONATE
                 </h6>
                 <p>
-                  Blocktonate is an online donation platform using crypto as its
-                  currency
+                  BLOCKTONATE is an online platform that connects economical donations directly with the people in need though the use of blockchain technology.
                 </p>
               </div>
               <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
@@ -78,22 +77,12 @@ function FooterBar() {
 
                 <p>
                   <a href="https://getbootstrap.com/" className="text-reset">
-                    Bootstrap
+                    React Bootstrap
                   </a>
                 </p>
               </div>
               <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
                 <h6 className="text-uppercase fw-bold mb-4">Useful links</h6>
-                <p>
-                  <a href="#!" className="text-reset">
-                    About
-                  </a>
-                </p>
-                <p>
-                  <a href="#!" className="text-reset">
-                    Careers
-                  </a>
-                </p>
                 <p>
                   <a
                     href="https://github.com/dkchkrso/blocktonate-client.git"
