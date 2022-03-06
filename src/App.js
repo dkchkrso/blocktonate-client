@@ -9,6 +9,7 @@ import LoginPage from "./pages/LoginPage";
 import IsPrivate from "./components/IsPrivate";
 import IsAnon from "./components/IsAnon";
 import ReceiverListPage from "./pages/ReceiverListPage";
+import ReceiverDetailsPage from "./pages/ReceiverDetailsPage";
 
 
 function App() {
@@ -18,7 +19,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<HomePage />} />
-        
+
         <Route
           path="/receivers"
           element={
@@ -27,8 +28,8 @@ function App() {
             </IsPrivate>
           }
         />
-        {/* <Route path="/receivers/:id" element={<ReceiverDetailsPage />} />
-        <Route path="/receivers/edit/:id" element={<EditReceiverPage />} /> */}
+        <Route path="/receivers/:id" element={<ReceiverDetailsPage />} />
+        {/* <Route path="/receivers/edit/:id" element={<EditReceiverPage />} /> */}
         <Route
           path="/signup"
           element={

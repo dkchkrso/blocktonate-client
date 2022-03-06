@@ -1,10 +1,11 @@
 import ReceiverListHome from "../components/ReceiverListHome";
+import ReceiverListPage from "../pages/ReceiverListPage";
+
 import { Container } from "react-bootstrap/";
 import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";
 
 function HomePage() {
-  
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
 
   return (
@@ -19,9 +20,11 @@ function HomePage() {
           <br></br>
           <p>Blocktonate makes donations to refugees easy and cheep</p>
           <br></br>
+          <ReceiverListHome />
         </Container>
       )}
-      <ReceiverListHome />
+      {isLoggedIn && <ReceiverListPage />
+      }
     </div>
   );
 }
