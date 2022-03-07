@@ -45,7 +45,11 @@ function StartPaymentPage(props) {
       <div>
         {name} has so far received: {receivedAmount} {currency}
       </div>
-      <StartPayment walletAddress={walletAddress} name={name} />
+      <StartPayment
+        walletAddress={walletAddress}
+        name={name}
+        receivedAmount={receivedAmount}
+      />
     </Container>
   );
 }

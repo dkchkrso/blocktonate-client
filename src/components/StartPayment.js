@@ -4,9 +4,7 @@ import ErrorMessage from "./ErrorMessage.js";
 import TxList from "./TxList";
 import { Button } from "react-bootstrap/";
 
-
 const startPayment = async ({ setError, setTxs, ether, addr }) => {
-
   
   try {
     if (!window.ethereum)
@@ -42,6 +40,26 @@ console.log(props);
       ether: data.get("ether"),
       addr: data.get("addr"),
     });
+
+
+
+
+ 
+
+
+
+
+
+    
+    console.log("transaction done")
+  
+  
+  
+
+
+
+
+    
   };
   
   return (
@@ -73,7 +91,7 @@ console.log(props);
           </div>
         </main>
         <footer className="p-4">
-          <Button type="submit">Pay now</Button>
+          <Button type="submit">Sent Donation</Button>
           <ErrorMessage message={error} />
           <TxList txs={txs} />
         </footer>

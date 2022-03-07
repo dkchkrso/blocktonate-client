@@ -6,7 +6,10 @@ export default function TxList({ txs }) {
       {txs.map((item) => (
         <div key={item} className="alert alert-info mt-5">
           <div className="flex-1">
-            <label>{item.hash}</label>
+            <label>Transaction successfully completed</label>
+            <br></br>
+            <br></br>
+            <label>See transaction Hash {item.hash} on Etherscan</label>
           </div>
         </div>
       ))}

@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useParams } from "react-router-dom";
-import { Card, Image, ProgressBar, Button, Carousel } from "react-bootstrap/";
+import { Card, Image, ProgressBar, Button, Carousel, Container, Row } from "react-bootstrap/";
+
 
 const API_URL = "http://localhost:5005";
 
@@ -34,12 +35,18 @@ function ReceiverDetailsPage(props) {
 
   return (
     <div className="ProjectDetails">
-      <Link to="/receivers">
-        <Button>Back</Button>
-      </Link>
+      <Container>
+
+        <Link to={`/donate/${id}`}>
+          <div className="d-grid gap-2">
+            <Button variant="primary" size="lg">
+              Donate
+            </Button>
+          </div>
+        </Link>
+      </Container>
       <br></br>
       {receiver && (
-          
         <Card style={{ width: "40rem" }}>
           <h2>{receiver.name}</h2>
           <ProgressBar
@@ -123,14 +130,34 @@ function ReceiverDetailsPage(props) {
           </li>
         ))} */}
 
+      <Container>
+        <iframe
+        title="arrows"
+          src="https://giphy.com/embed/b73wUq1jFLBTy"
+          width="480"
+          height="242"
+          frameBorder="0"
+          class="giphy-embed"
+          allowFullScreen
+        ></iframe>
+        <Link to={`/donate/${id}`}>
+          <div className="d-grid gap-2">
+            <Button variant="primary" size="lg">
+              Donate
+            </Button>
+          </div>
+        </Link>
+      </Container>
+
       <Link to="/receivers">
         <Button className="m-2">Back</Button>
       </Link>
 
       <Link to={`/receivers/edit/${id}`}>
-        <Button variant="warning" className="m-2">Edit</Button>
+        <Button variant="warning" className="m-2">
+          Edit
+        </Button>
       </Link>
-  
     </div>
   );
 }
