@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";
 import WalletCard from "./WalletCard";
-import { Button, Image} from "react-bootstrap/";
+import { Button, Image, Container} from "react-bootstrap/";
 import logo from "./logo1.jpg";
 
 function Navbar() {
@@ -15,38 +15,44 @@ function Navbar() {
 
   return (
     <nav className="Navbar">
-        <div>
-          <Link to="/">
-          <Image className="logo-img" src={logo} alt="Blocktonate logo" width="150" height="40" />
+      <div>
+        <Link to="/">
+          <Image
+            className="logo-img"
+            src={logo}
+            alt="Blocktonate logo"
+            width="150"
+            height="40"
+          />
           {/* <Button>Home</Button> */}
         </Link>
-        </div>
+      </div>
 
       <div>
         {isLoggedIn && (
-          <>
+          <div>
             <Link to="/receivers">
               <Button>Receivers</Button>
             </Link>
+            <WalletCard />
             <Button onClick={logOutUser} variant="light">
               Logout
             </Button>
-            <span>User: {user && user.name}</span>
-            <WalletCard />
-          </>
+          </div>
         )}
-  
+
         {!isLoggedIn && (
           <>
             <Link to="/signup">
-              <Button className="sign-up-btn" variant="light">Sign Up</Button>
+              <Button className="sign-up-btn" variant="light">
+                Sign Up
+              </Button>
             </Link>
             <Link to="/login">
               <Button variant="light">Login</Button>
             </Link>
           </>
         )}
-  
       </div>
     </nav>
   );

@@ -52,9 +52,9 @@ textarea {
   justify-content: space-between;
   background: #515f7d;
   color: white;
-  padding: 0px 20px;
+  padding: 0px;
   width: 100%;
-  margin-bottom: 15px;
+  margin-bottom: 0px;
   padding: 10px;
 }
 
@@ -65,6 +65,14 @@ textarea {
   font-weight: 600;
 }
 
+.Navbar2 {
+  display: flex;
+  justify-content: right;
+  padding: 0px;
+  width: 100%;
+  margin-bottom: 0px;
+  padding: 10px;
+}
 .sign-up-btn{
   margin: 10px;
 }
@@ -81,11 +89,6 @@ textarea {
   margin-bottom: 20px;
   background: #94a7c8;
   border-radius: 4px;
-}
-
-.ProjectCard h3::after {
-  content: url("https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/m3/icon-expand.png");
-  margin-left: 5px;
 }
 
 .EditProjectPage,

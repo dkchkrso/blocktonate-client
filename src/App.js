@@ -2,6 +2,7 @@ import "./App.css";
 import { Routes, Route } from "react-router-dom";
  
 import Navbar from "./components/Navbar";
+import Navbar2 from "./components/Navbar2";
 import FooterBar from "./components/FooterBar";
 import HomePage from "./pages/HomePage";
 import SignupPage from "./pages/SignupPage";
@@ -16,6 +17,7 @@ function App() {
   return (
     <div className="App">
       <Navbar />
+      <Navbar2 />
 
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -28,7 +30,14 @@ function App() {
             </IsPrivate>
           }
         />
-        <Route path="/receivers/:id" element={<ReceiverDetailsPage />} />
+        <Route
+          path="/receivers/:id"
+          element={
+            <IsPrivate>
+              <ReceiverDetailsPage />
+            </IsPrivate>
+          }
+        />
         {/* <Route path="/receivers/edit/:id" element={<EditReceiverPage />} /> */}
         <Route
           path="/signup"
