@@ -124,12 +124,13 @@ function ReceiverDetailsPage(props) {
         ))} */}
 
       <Link to="/receivers">
-        <Button>Back</Button>
+        <Button className="m-2">Back</Button>
       </Link>
 
       <Link to={`/receivers/edit/${id}`}>
-        <button>Edit</button>
+        <Button variant="warning" className="m-2">Edit</Button>
       </Link>
+  
     </div>
   );
 }

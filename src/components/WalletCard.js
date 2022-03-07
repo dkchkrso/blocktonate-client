@@ -60,7 +60,7 @@ const WalletCard = () => {
     <div className="walletCard">
       <div className="accountInfoDisplay">
         {/* <p>Address: {defaultAccount}</p> */}
-        <p className="m-5">Balance: {userBalance} </p>
+        <p>Balance: {userBalance} </p>
       </div>
       <Button
         className="connectWalletDisplay"

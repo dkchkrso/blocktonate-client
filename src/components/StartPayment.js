@@ -2,8 +2,12 @@ import { useState } from "react";
 import { ethers } from "ethers";
 import ErrorMessage from "./ErrorMessage.js";
 import TxList from "./TxList";
+import { Button } from "react-bootstrap/";
+
 
 const startPayment = async ({ setError, setTxs, ether, addr }) => {
+
+  
   try {
     if (!window.ethereum)
       throw new Error("No crypto wallet found. Please install it.");
@@ -24,10 +28,10 @@ const startPayment = async ({ setError, setTxs, ether, addr }) => {
   }
 };
 
-export default function App() {
+export default function App(props) {
   const [error, setError] = useState();
   const [txs, setTxs] = useState([]);
-
+console.log(props);
   const handleSubmit = async (e) => {
     e.preventDefault();
     const data = new FormData(e.target);
@@ -39,19 +43,21 @@ export default function App() {
       addr: data.get("addr"),
     });
   };
-
+  
   return (
     <form className="m-4" onSubmit={handleSubmit}>
       <div className="credit-card w-full lg:w-1/2 sm:w-auto shadow-lg mx-auto rounded-xl bg-white">
         <main className="mt-4 p-4">
+
           <h1 className="text-xl font-semibold text-gray-700 text-center">
-            Send ETH payment
+            Send ETH payment to {props.name}
           </h1>
           <div className="">
             <div className="my-3">
               <input
                 type="text"
                 name="addr"
+                value={props.walletAddress}
                 className="input input-bordered block w-full focus:ring focus:outline-none"
                 placeholder="Recipient Address"
               />
@@ -67,12 +73,7 @@ export default function App() {
           </div>
         </main>
         <footer className="p-4">
-          <button
-            type="submit"
-            className="btn btn-primary submit-button focus:ring focus:outline-none w-full"
-          >
-            Pay now
-          </button>
+          <Button type="submit">Pay now</Button>
           <ErrorMessage message={error} />
           <TxList txs={txs} />
         </footer>

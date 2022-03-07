@@ -11,6 +11,8 @@ import IsPrivate from "./components/IsPrivate";
 import IsAnon from "./components/IsAnon";
 import ReceiverListPage from "./pages/ReceiverListPage";
 import ReceiverDetailsPage from "./pages/ReceiverDetailsPage";
+import EditReceiverPage from "./pages/EditReceiverPage";
+import StartPaymentPage from "./pages/StartPaymentPage";
 
 
 function App() {
@@ -30,16 +32,21 @@ function App() {
             </IsPrivate>
           }
         />
+        <Route path="/receivers/:id" element={<ReceiverDetailsPage />} />
+        
         <Route
-          path="/receivers/:id"
+          path="/receivers/edit/:id"
           element={
             <IsPrivate>
-              <ReceiverDetailsPage />
+              <EditReceiverPage />
             </IsPrivate>
           }
         />
-        {/* <Route path="/receivers/edit/:id" element={<EditReceiverPage />} /> */}
+        
+        <Route path="/donate/:id" element={<StartPaymentPage />} />
+        
         <Route
+
           path="/signup"
           element={
             <IsAnon>

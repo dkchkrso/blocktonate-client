@@ -24,7 +24,6 @@ function Navbar() {
             width="150"
             height="40"
           />
-          {/* <Button>Home</Button> */}
         </Link>
       </div>
 
