@@ -138,7 +138,6 @@ function ReceiverDetailsPage(props) {
           width="480"
           height="242"
           frameBorder="0"
-          class="giphy-embed"
           allowFullScreen
         ></iframe>
         <Link to={`/donate/${id}`}>

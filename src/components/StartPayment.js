@@ -9,6 +9,17 @@ import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 
 
+
+
+
+
+
+
+
+
+
+
+
 const startPayment = async ({ setError, setTxs, ether, addr }) => {
   
   try {
@@ -34,9 +45,8 @@ const startPayment = async ({ setError, setTxs, ether, addr }) => {
 export default function App(props) {
   const [error, setError] = useState();
   const [txs, setTxs] = useState([]);
-  
-  
-  
+
+
   // const [name, setName] = useState("Adam");
   // const [description, setDescription] = useState(
   //   "A donation of one ETH would help me and my family to buy animals for food and for resale in order to support my family.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vestibulum orci a sapien imperdiet maximus. Suspendisse vel ex eget mauris efficitur finibus eu a enim. Aenean tellus neque, consectetur sit amet lacus a, hendrerit ornare urna. Fusce venenatis lorem vitae augue suscipit, eu tempor massa vulputate. Praesent iaculis velit libero, vel faucibus sem pulvinar vel. Curabitur viverra nisl dui, a venenatis felis pellentesque id. Donec non lacus diam.\n\n Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vestibulum orci a sapien imperdiet maximus. Suspendisse vel ex eget mauris efficitur finibus eu a enim. Aenean tellus neque, consectetur sit amet lacus a, hendrerit ornare urna. Fusce venenatis lorem vitae augue suscipit, eu tempor massa vulputate. Praesent iaculis velit libero, vel faucibus sem pulvinar vel. Curabitur viverra nisl dui, a venenatis felis pellentesque id. Donec non lacus diam."
@@ -53,24 +63,9 @@ export default function App(props) {
   // );
   // console.log(props);
 
+  // const API_URL = "http://localhost:5005";
 
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const data = new FormData(e.target);
-    setError();
-    await startPayment({
-      setError,
-      setTxs,
-      ether: data.get("ether"),
-      addr: data.get("addr"),
-    });
-  }
-
-
-// const API_URL = "http://localhost:5005";
-
-//   const storedToken = localStorage.getItem("authToken");
+  //   const storedToken = localStorage.getItem("authToken");
 
   // axios
   //   .get(`${API_URL}/api/receivers/${props.id}`, {
@@ -94,20 +89,35 @@ export default function App(props) {
   //   })
   //   .catch((error) => console.log(error));
 
+  // const requestBody = { name, description, walletAddress, askingAmount, receivedAmount, currency, categories, imageURL };
+  // console.log("requestBody: ", requestBody)
+  // axios
+  //   .put(`${API_URL}/api/receivers/${props.id}`, requestBody, {
+  //     headers: { Authorization: `Bearer ${storedToken}` },
+  //   })
+  //   .then((response) => {
+  //     //navigate(`/receivers/${props.id}`);
+  //   });
+  //   };
 
-// const requestBody = { name, description, walletAddress, askingAmount, receivedAmount, currency, categories, imageURL };
-// console.log("requestBody: ", requestBody)
-// axios
-//   .put(`${API_URL}/api/receivers/${props.id}`, requestBody, {
-//     headers: { Authorization: `Bearer ${storedToken}` },
-//   })
-//   .then((response) => {
-//     //navigate(`/receivers/${props.id}`);
-//   });
-//   };
 
 
- 
+
+
+  
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const data = new FormData(e.target);
+    setError();
+    await startPayment({
+      setError,
+      setTxs,
+      ether: data.get("ether"),
+      addr: data.get("addr"),
+    });
+  };
+
   return (
     <form className="m-4" onSubmit={handleSubmit}>
       <div className="EditProjectPage">

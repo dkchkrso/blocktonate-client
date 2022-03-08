@@ -20,11 +20,10 @@ function HomePage() {
           <br></br>
           <p>Blocktonate makes donations to refugees easy and cheep</p>
           <br></br>
-          <ReceiverListHome />
+          <ReceiverListHome/>
         </Container>
       )}
-      {isLoggedIn && <ReceiverListPage />
-      }
+      {isLoggedIn && <ReceiverListPage />}
     </div>
   );
 }

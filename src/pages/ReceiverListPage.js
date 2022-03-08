@@ -50,8 +50,8 @@ function ReceiverListPage() {
           {receivers.map((receiver) => {
             const now = receiver.receivedAmount / (receiver.askingAmount / 100);
             return (
-              <Col className="col-6 col-md-3 col-lg-2">
-                <Card key={receiver._id} className="card-img-top">
+              <Col key={receiver._id} className="col-6 col-md-3 col-lg-2">
+                <Card className="card-img-top">
                   <Link to={`/receivers/${receiver._id}`}>
                     <Image
                       src={receiver.imageURL}

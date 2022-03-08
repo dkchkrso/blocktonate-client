@@ -33,9 +33,8 @@ function ReceiverListPage() {
         {receivers.map((receiver) => {
             const now = receiver.receivedAmount / (receiver.askingAmount / 100);
           return (
-            <Col className="col-6 col-md-3 col-lg-2">
-              <Card key={receiver._id} className="card-img-top">
-                
+            <Col key={receiver._id} className="col-6 col-md-3 col-lg-2">
+              <Card className="card-img-top">
                 {!isLoggedIn && (
                   <Link to={"/login"}>
                     <Image
@@ -45,13 +44,13 @@ function ReceiverListPage() {
                     />
                   </Link>
                 )}
-                
+
                 {isLoggedIn && (
-                    <Image
-                      src={receiver.imageURL}
-                      alt="Receiver"
-                      className="card-img-top"
-                    />
+                  <Image
+                    src={receiver.imageURL}
+                    alt="Receiver"
+                    className="card-img-top"
+                  />
                 )}
 
                 <p>{receiver.name}</p>

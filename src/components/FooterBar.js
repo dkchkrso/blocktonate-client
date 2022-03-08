@@ -38,7 +38,7 @@ function FooterBar() {
                 </p>
               </div>
               <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-                <h6 class="text-uppercase fw-bold mb-4">Technologies</h6>
+                <h6 className="text-uppercase fw-bold mb-4">Technologies</h6>
                 <p>
                   <a href="https://reactjs.org/" className="text-reset">
                     ReactJS
