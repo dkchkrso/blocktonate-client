@@ -13,6 +13,7 @@ import ReceiverListPage from "./pages/ReceiverListPage";
 import ReceiverDetailsPage from "./pages/ReceiverDetailsPage";
 import EditReceiverPage from "./pages/EditReceiverPage";
 import StartPaymentPage from "./pages/StartPaymentPage";
+import ProfilePage from "./pages/ProfilePage";
 
 
 function App() {
@@ -33,7 +34,7 @@ function App() {
           }
         />
         <Route path="/receivers/:id" element={<ReceiverDetailsPage />} />
-        
+
         <Route
           path="/receivers/edit/:id"
           element={
@@ -42,11 +43,19 @@ function App() {
             </IsPrivate>
           }
         />
-        
-        <Route path="/donate/:id" element={<StartPaymentPage />} />
-        
-        <Route
 
+        <Route path="/donate/:id" element={<StartPaymentPage />} />
+
+        <Route
+          path="/profile"
+          element={
+            <IsPrivate>
+              <ProfilePage />
+            </IsPrivate>
+          }
+        />
+  
+        <Route
           path="/signup"
           element={
             <IsAnon>

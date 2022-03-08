@@ -1,8 +1,13 @@
-import { useState } from "react";
+//import { useState } from "react";
 import { ethers } from "ethers";
 import ErrorMessage from "./ErrorMessage.js";
 import TxList from "./TxList";
 import { Button } from "react-bootstrap/";
+
+import { useState, useEffect } from "react";
+import axios from "axios";
+import { useParams, useNavigate } from "react-router-dom";
+
 
 const startPayment = async ({ setError, setTxs, ether, addr }) => {
   
@@ -29,7 +34,27 @@ const startPayment = async ({ setError, setTxs, ether, addr }) => {
 export default function App(props) {
   const [error, setError] = useState();
   const [txs, setTxs] = useState([]);
-console.log(props);
+  
+  
+  
+  // const [name, setName] = useState("Adam");
+  // const [description, setDescription] = useState(
+  //   "A donation of one ETH would help me and my family to buy animals for food and for resale in order to support my family.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vestibulum orci a sapien imperdiet maximus. Suspendisse vel ex eget mauris efficitur finibus eu a enim. Aenean tellus neque, consectetur sit amet lacus a, hendrerit ornare urna. Fusce venenatis lorem vitae augue suscipit, eu tempor massa vulputate. Praesent iaculis velit libero, vel faucibus sem pulvinar vel. Curabitur viverra nisl dui, a venenatis felis pellentesque id. Donec non lacus diam.\n\n Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vestibulum orci a sapien imperdiet maximus. Suspendisse vel ex eget mauris efficitur finibus eu a enim. Aenean tellus neque, consectetur sit amet lacus a, hendrerit ornare urna. Fusce venenatis lorem vitae augue suscipit, eu tempor massa vulputate. Praesent iaculis velit libero, vel faucibus sem pulvinar vel. Curabitur viverra nisl dui, a venenatis felis pellentesque id. Donec non lacus diam."
+  // );
+  // const [walletAddress, setWalletAddress] = useState(
+  //   "0x01F8112a572d2d61c349e2942F51B004Acc870D5"
+  // );
+  // const [askingAmount, setAskingAmount] = useState(1);
+  // const [receivedAmount, setReceivedAmount] = useState(0.50);
+  // const [currency, setCurrency] = useState("ETH");
+  // const [categories, setCategories] = useState("");
+  // const [imageURL, setImageURL] = useState(
+  //   "https://images.pexels.com/photos/7386008/pexels-photo-7386008.jpeg?cs=srgb&dl=pexels-ahmed-akacha-7386008.jpg&fm=jpg"
+  // );
+  // console.log(props);
+
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const data = new FormData(e.target);
@@ -40,33 +65,53 @@ console.log(props);
       ether: data.get("ether"),
       addr: data.get("addr"),
     });
+  }
 
 
+// const API_URL = "http://localhost:5005";
+
+//   const storedToken = localStorage.getItem("authToken");
+
+  // axios
+  //   .get(`${API_URL}/api/receivers/${props.id}`, {
+  //     headers: { Authorization: `Bearer ${storedToken}` },
+  //   })
+  //   .then((response) => {
+  //     const oneReceiver = response.data;
+  //     console.log("oneReceiver: ", oneReceiver);
+  //     console.log("oneReceiver Name: ", oneReceiver.name);
+  //     console.log("name1: ", name);
+  //     setName(oneReceiver.name);
+  //     console.log("name2: ", name);
+  //     setDescription(oneReceiver.description);
+  //     setWalletAddress(oneReceiver.walletAddress);
+  //     setAskingAmount(oneReceiver.askingAmount);
+  //     setReceivedAmount(oneReceiver.receivedAmount);
+  //     setReceivedAmount(receivedAmount + 10); //ethers.utils.parseEther(ether)
+  //     setCurrency(oneReceiver.currency);
+  //     setCategories(oneReceiver.categories);
+  //     setImageURL(oneReceiver.imageURL);
+  //   })
+  //   .catch((error) => console.log(error));
+
+
+// const requestBody = { name, description, walletAddress, askingAmount, receivedAmount, currency, categories, imageURL };
+// console.log("requestBody: ", requestBody)
+// axios
+//   .put(`${API_URL}/api/receivers/${props.id}`, requestBody, {
+//     headers: { Authorization: `Bearer ${storedToken}` },
+//   })
+//   .then((response) => {
+//     //navigate(`/receivers/${props.id}`);
+//   });
+//   };
 
 
  
-
-
-
-
-
-    
-    console.log("transaction done")
-  
-  
-  
-
-
-
-
-    
-  };
-  
   return (
     <form className="m-4" onSubmit={handleSubmit}>
-      <div className="credit-card w-full lg:w-1/2 sm:w-auto shadow-lg mx-auto rounded-xl bg-white">
+      <div className="EditProjectPage">
         <main className="mt-4 p-4">
-
           <h1 className="text-xl font-semibold text-gray-700 text-center">
             Send ETH payment to {props.name}
           </h1>

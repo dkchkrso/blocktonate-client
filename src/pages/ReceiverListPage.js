@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import AddReceiver from "../components/AddReceiver";
+import SearchBar from "../components/SearchBar";
 import {
   Container,
   Card,
@@ -35,7 +36,7 @@ function ReceiverListPage() {
       .catch((error) => console.log(error));
   };
 
-  // We set this effect will run only once, after the initial render
+   // We set this effect will run only once, after the initial render
   // by setting the empty dependency array - []
   useEffect(() => {
     getAllReceivers();
@@ -44,6 +45,7 @@ function ReceiverListPage() {
   return (
     <div className="ProjectListPage">
       <Container>
+        {/* <SearchBar searchFilter={searchFilter} /> */}
         <Row>
           {receivers.map((receiver) => {
             const now = receiver.receivedAmount / (receiver.askingAmount / 100);

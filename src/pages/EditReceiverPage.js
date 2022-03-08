@@ -112,6 +112,7 @@ function EditReceiverPage(props) {
         />
         <label>Received Amount:</label>
         <textarea
+          disabled="disabled"
           type="number"
           name="receivedAmount"
           value={receivedAmount}

@@ -33,10 +33,11 @@ function ReceiverDetailsPage(props) {
 }, []);
   // const now = receiver.receivedAmount / (receiver.askingAmount / 100);
 
+
+
   return (
     <div className="ProjectDetails">
       <Container>
-
         <Link to={`/donate/${id}`}>
           <div className="d-grid gap-2">
             <Button variant="primary" size="lg">
@@ -132,7 +133,7 @@ function ReceiverDetailsPage(props) {
 
       <Container>
         <iframe
-        title="arrows"
+          title="arrows"
           src="https://giphy.com/embed/b73wUq1jFLBTy"
           width="480"
           height="242"

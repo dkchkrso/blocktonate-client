@@ -34,6 +34,9 @@ function Navbar() {
               <Button>Receivers</Button>
             </Link>
             <WalletCard />
+            <Link to="/profile">
+              <Button variant="light">Profile</Button>
+            </Link>
             <Button onClick={logOutUser} variant="light">
               Logout
             </Button>
