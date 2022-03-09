@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+
 // const API_URL = "http://localhost:5005";
-const API_URL = "blocktonate.herokuapp.com";
+const API_URL = "https://blocktonate.herokuapp.com";
 
 const AuthContext = React.createContext();
 

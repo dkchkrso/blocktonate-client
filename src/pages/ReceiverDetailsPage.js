@@ -5,7 +5,7 @@ import { Card, Image, ProgressBar, Button, Carousel, Container, Row } from "reac
 
 
 // const API_URL = "http://localhost:5005";
-const API_URL = "blocktonate.herokuapp.com";
+const API_URL = "https://blocktonate.herokuapp.com";
 
 
 function ReceiverDetailsPage(props) {

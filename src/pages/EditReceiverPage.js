@@ -5,7 +5,7 @@ import { Button } from "react-bootstrap/";
 import { Link } from "react-router-dom";
 
 // const API_URL = "http://localhost:5005";
-const API_URL = "blocktonate.herokuapp.com";
+const API_URL = "https://blocktonate.herokuapp.com";
 
 function EditReceiverPage(props) {
   const [name, setName] = useState("");

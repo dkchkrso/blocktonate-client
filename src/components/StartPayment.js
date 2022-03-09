@@ -46,7 +46,6 @@ export default function App(props) {
   const [error, setError] = useState();
   const [txs, setTxs] = useState([]);
 
-
   // const [name, setName] = useState("Adam");
   // const [description, setDescription] = useState(
   //   "A donation of one ETH would help me and my family to buy animals for food and for resale in order to support my family.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vestibulum orci a sapien imperdiet maximus. Suspendisse vel ex eget mauris efficitur finibus eu a enim. Aenean tellus neque, consectetur sit amet lacus a, hendrerit ornare urna. Fusce venenatis lorem vitae augue suscipit, eu tempor massa vulputate. Praesent iaculis velit libero, vel faucibus sem pulvinar vel. Curabitur viverra nisl dui, a venenatis felis pellentesque id. Donec non lacus diam.\n\n Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vestibulum orci a sapien imperdiet maximus. Suspendisse vel ex eget mauris efficitur finibus eu a enim. Aenean tellus neque, consectetur sit amet lacus a, hendrerit ornare urna. Fusce venenatis lorem vitae augue suscipit, eu tempor massa vulputate. Praesent iaculis velit libero, vel faucibus sem pulvinar vel. Curabitur viverra nisl dui, a venenatis felis pellentesque id. Donec non lacus diam."
@@ -64,7 +63,8 @@ export default function App(props) {
   // console.log(props);
 
   // const API_URL = "http://localhost:5005";
-
+  // const API_URL = "https://blocktonate.herokuapp.com";
+  
   //   const storedToken = localStorage.getItem("authToken");
 
   // axios
@@ -99,12 +99,6 @@ export default function App(props) {
   //     //navigate(`/receivers/${props.id}`);
   //   });
   //   };
-
-
-
-
-
-  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
