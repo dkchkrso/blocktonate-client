@@ -1,7 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
 
-const API_URL = "http://localhost:5005";
+// const API_URL = "http://localhost:5005";
+const API_URL = "blocktonate.herokuapp.com";
 
 function AddReceiver(props) {
   const [name, setName] = useState("");

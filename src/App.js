@@ -28,9 +28,9 @@ function App() {
         <Route
           path="/receivers"
           element={
-            
+            <IsPrivate>
               <ReceiverListPage />
-            
+            </IsPrivate>
           }
         />
         <Route path="/receivers/:id" element={<ReceiverDetailsPage />} />
@@ -54,7 +54,7 @@ function App() {
             </IsPrivate>
           }
         />
-  
+
         <Route
           path="/signup"
           element={

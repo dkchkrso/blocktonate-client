@@ -5,16 +5,18 @@ import { Container, Card, Row, Col, Image, ProgressBar} from "react-bootstrap/";
 import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";
 
-const API_URL = "http://localhost:5005";
+
+// const API_URL = "http://localhost:5005";
+const API_URL = "blocktonate.herokuapp.com";
 
 function ReceiverListPage() {
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
-  
+
   const [receivers, setReceivers] = useState([]);
 
   const getAllReceivers = () => {
     // Get the token from the localStorage
-    
+
     axios
       .get(`${API_URL}/api`)
       .then((response) => setReceivers(response.data))
@@ -31,7 +33,7 @@ function ReceiverListPage() {
     <Container>
       <Row>
         {receivers.map((receiver) => {
-            const now = receiver.receivedAmount / (receiver.askingAmount / 100);
+          const now = receiver.receivedAmount / (receiver.askingAmount / 100);
           return (
             <Col key={receiver._id} className="col-6 col-md-3 col-lg-2">
               <Card className="card-img-top">

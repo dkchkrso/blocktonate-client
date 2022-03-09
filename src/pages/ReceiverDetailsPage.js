@@ -4,7 +4,9 @@ import { Link, useParams } from "react-router-dom";
 import { Card, Image, ProgressBar, Button, Carousel, Container, Row } from "react-bootstrap/";
 
 
-const API_URL = "http://localhost:5005";
+// const API_URL = "http://localhost:5005";
+const API_URL = "blocktonate.herokuapp.com";
+
 
 function ReceiverDetailsPage(props) {
   const [receiver, setReceiver] = useState(null);
