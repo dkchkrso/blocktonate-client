@@ -73,6 +73,7 @@ function AddReceiver(props) {
       <form onSubmit={handleSubmit}>
         <label>Name:</label>
         <input
+          style={{ width: "600px" }}
           type="text"
           name="name"
           value={name}
@@ -82,6 +83,7 @@ function AddReceiver(props) {
         />
         <label>Description:</label>
         <textarea
+          style={{ width: "600px", height: "300px" }}
           type="text"
           name="description"
           value={description}
@@ -89,6 +91,7 @@ function AddReceiver(props) {
         />
         <label>Wallet Address:</label>
         <textarea
+          style={{ width: "600px" }}
           type="text"
           name="walletAddress"
           value={walletAddress}
@@ -98,6 +101,7 @@ function AddReceiver(props) {
         />
         <label>Asking Amount:</label>
         <textarea
+          style={{ width: "600px" }}
           type="number"
           name="askingAmount"
           value={askingAmount}
@@ -106,6 +110,7 @@ function AddReceiver(props) {
 
         <label>Currency:</label>
         <textarea
+          style={{ width: "600px" }}
           type="text"
           name="currency"
           value={currency}
@@ -113,6 +118,7 @@ function AddReceiver(props) {
         />
         <label>Categories:</label>
         <textarea
+          style={{ width: "600px" }}
           type="text"
           name="categories"
           value={categories}
@@ -120,6 +126,7 @@ function AddReceiver(props) {
         />
         <label>Image:</label>
         <textarea
+          style={{ width: "600px", height: "150px" }}
           type="text"
           name="imageURL"
           value={imageURL}

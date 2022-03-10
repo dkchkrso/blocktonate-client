@@ -81,7 +81,9 @@ function EditReceiverPage(props) {
       })
       .catch((err) => console.log(err));
   };
-
+const width600 = {
+      width: "600px",
+ }
   return (
     <div className="EditProjectPage">
       <h3>Edit</h3>
@@ -91,6 +93,7 @@ function EditReceiverPage(props) {
       <form onSubmit={handleFormSubmit}>
         <label>Name:</label>
         <input
+          style={{ width: "600px" }}
           type="text"
           name="name"
           value={name}
@@ -98,6 +101,7 @@ function EditReceiverPage(props) {
         />
         <label>Description:</label>
         <textarea
+          style={{ width: "600px", height: "300px" }}
           type="text"
           name="description"
           value={description}
@@ -105,6 +109,7 @@ function EditReceiverPage(props) {
         />
         <label>Wallet Address:</label>
         <textarea
+          style={{ width: "600px" }}
           type="text"
           name="walletAddress"
           value={walletAddress}
@@ -112,6 +117,7 @@ function EditReceiverPage(props) {
         />
         <label>Asking Amount:</label>
         <textarea
+          style={{ width: "600px" }}
           type="number"
           name="askingAmount"
           value={askingAmount}
@@ -119,6 +125,7 @@ function EditReceiverPage(props) {
         />
         <label>Received Amount:</label>
         <textarea
+          style={{ width: "600px" }}
           disabled="disabled"
           type="number"
           name="receivedAmount"
@@ -127,6 +134,7 @@ function EditReceiverPage(props) {
         />
         <label>Currency:</label>
         <textarea
+          style={{ width: "600px" }}
           type="text"
           name="currency"
           value={currency}
@@ -134,6 +142,7 @@ function EditReceiverPage(props) {
         />
         <label>Categories:</label>
         <textarea
+          style={{ width: "600px" }}
           type="text"
           name="categories"
           value={categories}
@@ -141,6 +150,7 @@ function EditReceiverPage(props) {
         />
         <label>Image:</label>
         <textarea
+          style={{ width: "600px", height: "150px" }}
           type="text"
           name="imageURL"
           value={imageURL}

@@ -9,7 +9,7 @@ const ApiUrlContext = createContext();
 
 function ApiUrlProviderWrapper(props) {
   return (
-    <ApiUrlContext.Provider value={"https://blocktonate.herokuapp.com"}>
+    <ApiUrlContext.Provider value={"http://localhost:5005"}>
       {props.children}
     </ApiUrlContext.Provider>
   );
