@@ -41,7 +41,7 @@ label {
 
 input,
 textarea {
-  width: 200px;
+  width: 600px;
   padding: 10px;
   display: inline-block;
   margin: 10px;
@@ -96,7 +96,7 @@ textarea {
 .AddTask {
    border: 2px solid grey;
   box-shadow: 0px 2px 3px grey;
-  width: 400px;
+  width: 800px;
   text-align: center;
   margin: 0 auto;
   margin-bottom: 100px;

@@ -68,7 +68,7 @@ function AddReceiver(props) {
 
   return (
     <div className="AddProject">
-      <h3>Request new donation</h3>
+      <h3>Request New Donation</h3>
 
       <form onSubmit={handleSubmit}>
         <label>Name:</label>

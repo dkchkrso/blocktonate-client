@@ -15,10 +15,10 @@ function HomePage() {
         <div>
           <Image className="refugees-bg" src={refugees_bg} alt="refugees" />
           <Container>
-            <h1 className="header_home">Make a donation, change a life</h1>
+            <h1 className="header_home">Make a donation, change a life!</h1>
             <br />
             <br />
-            <h2>BLOCKTONATE makes donations to refugees easy and cheep</h2>
+            <h2>BLOCKTONATE makes donations to refugees easy, cheep and direct</h2>
             <br />
             <br />
             <br />
