@@ -62,6 +62,9 @@ function ReceiverListPage() {
                 )}
 
                 <p>{receiver.name}</p>
+                <p>
+                  Requesting: {receiver.askingAmount} {receiver.currency}
+                </p>
                 <ProgressBar now={now} label={`${now}%`}></ProgressBar>
                 <p>
                   {receiver.askingAmount - receiver.receivedAmount}{" "}

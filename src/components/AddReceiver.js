@@ -3,6 +3,7 @@ import axios from "axios";
 import { Button } from "react-bootstrap/";
 import { useContext } from "react";
 import { ApiUrlContext } from "../context/api.context";
+import { Link, useNavigate } from "react-router-dom";
 
 // const API_URL = "http://localhost:5005";
 // const API_URL = "https://blocktonate.herokuapp.com";
@@ -10,13 +11,14 @@ import { ApiUrlContext } from "../context/api.context";
 function AddReceiver(props) {
   const value = useContext(ApiUrlContext);
   const API_URL = value;
+  const navigate = useNavigate();
 
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [walletAddress, setWalletAddress] = useState("");
   const [askingAmount, setAskingAmount] = useState(0);
   const [receivedAmount, setReceivedAmount] = useState(0);
-  const [currency, setCurrency] = useState("BTC");
+  const [currency, setCurrency] = useState("USDT");
   const [categories, setCategories] = useState("");
   const [imageURL, setImageURL] = useState(
     "https://th.bing.com/th/id/R.d4cd92a0789ceeb33a2d166622c900ca?rik=6CFrn23DW%2fYgeA&riu=http%3a%2f%2fwww.millerrosenfalck.com%2fwp-content%2fuploads%2f2020%2f01%2fdefault-profile-300x300.png&ehk=BOb5Kx9NtLh%2fVKMqdEEfOHSAC1GVVcqjIBqdPG7bBNw%3d&risl=&pid=ImgRaw&r=0&sres=1&sresct=1"
@@ -50,13 +52,16 @@ function AddReceiver(props) {
         setWalletAddress("");
         setAskingAmount(0);
         setReceivedAmount(0);
-        setCurrency("BTC");
+        setCurrency("USDT");
         setCategories("");
         setImageURL(
           "https://th.bing.com/th/id/R.d4cd92a0789ceeb33a2d166622c900ca?rik=6CFrn23DW%2fYgeA&riu=http%3a%2f%2fwww.millerrosenfalck.com%2fwp-content%2fuploads%2f2020%2f01%2fdefault-profile-300x300.png&ehk=BOb5Kx9NtLh%2fVKMqdEEfOHSAC1GVVcqjIBqdPG7bBNw%3d&risl=&pid=ImgRaw&r=0&sres=1&sresct=1"
         );
 
         props.refreshReceivers();
+      })
+      .then(() => {
+        navigate("/");
       })
       .catch((error) => console.log(error));
   };
@@ -98,14 +103,7 @@ function AddReceiver(props) {
           value={askingAmount}
           onChange={(e) => setAskingAmount(e.target.value)}
         />
-        {/* <label>Received Amount:</label>
-          <textarea
-            type="number"
-            name="receivedAmount"
-            value={receivedAmount}
-            onChange={(e) => setReceivedAmount(e.target.value)}
-            disabled
-          /> */}
+
         <label>Currency:</label>
         <textarea
           type="text"
@@ -127,6 +125,7 @@ function AddReceiver(props) {
           value={imageURL}
           onChange={(e) => setImageURL(e.target.value)}
         />
+        <br />
         <Button type="submit">Submit</Button>
       </form>
     </div>

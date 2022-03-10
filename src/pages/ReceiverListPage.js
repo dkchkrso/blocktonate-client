@@ -82,7 +82,7 @@ function ReceiverListPage() {
           })}
         </Row>
       </Container>
-      <AddReceiver refreshReceivers={getAllReceivers} />
+      {/* <AddReceiver refreshReceivers={getAllReceivers} /> */}
     </div>
   );
 }

@@ -30,9 +30,10 @@ function Navbar() {
       <div>
         {isLoggedIn && (
           <div>
-            <Link to="/receivers">
-              <Button className="sign-up-btn">Receivers</Button>
+            <Link to="/request">
+              <Button className="sign-up-btn">Request New Donation</Button>
             </Link>
+
             <WalletCard />
             <Link to="/profile">
               <Button className="sign-up-btn" variant="light">
@@ -51,13 +52,20 @@ function Navbar() {
 
         {!isLoggedIn && (
           <>
+            <Link to="/about">
+              <Button className="sign-up-btn" variant="light">
+                About
+              </Button>
+            </Link>
             <Link to="/signup">
               <Button className="sign-up-btn" variant="light">
                 Sign Up
               </Button>
             </Link>
             <Link to="/login">
-              <Button variant="light">Login</Button>
+              <Button className="sign-up-btn" variant="light">
+                Login
+              </Button>
             </Link>
           </>
         )}

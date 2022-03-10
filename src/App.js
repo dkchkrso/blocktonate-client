@@ -1,6 +1,6 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
- 
+
 import Navbar from "./components/Navbar";
 import Navbar2 from "./components/Navbar2";
 import FooterBar from "./components/FooterBar";
@@ -16,13 +16,13 @@ import StartPaymentPage from "./pages/StartPaymentPage";
 import ProfilePage from "./pages/ProfilePage";
 import ErrorPage from "./pages/ErrorPage";
 import AboutPage from "./pages/AboutPage";
-
+import AddReceiverPage from "./pages/AddReceiverPage";
 
 function App() {
   return (
     <div className="App">
-      <Navbar />
-      <Navbar2 />
+      <Navbar sticky="top" />
+      <Navbar2 sticky="top" />
 
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -35,7 +35,22 @@ function App() {
             </IsPrivate>
           }
         />
-        <Route path="/receivers/:id" element={<ReceiverDetailsPage />} />
+        <Route
+          path="/request"
+          element={
+            <IsPrivate>
+              <AddReceiverPage />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/receivers/:id"
+          element={
+            <IsPrivate>
+              <ReceiverDetailsPage />
+            </IsPrivate>
+          }
+        />
 
         <Route
           path="/receivers/edit/:id"
@@ -46,7 +61,14 @@ function App() {
           }
         />
 
-        <Route path="/donate/:id" element={<StartPaymentPage />} />
+        <Route
+          path="/donate/:id"
+          element={
+            <IsPrivate>
+              <StartPaymentPage />
+            </IsPrivate>
+          }
+        />
 
         <Route
           path="/profile"
@@ -74,7 +96,14 @@ function App() {
           }
         />
 
-        <Route path="/about" element={<AboutPage />}></Route>
+        <Route
+          path="/about"
+          element={
+            <IsAnon>
+              <AboutPage />
+            </IsAnon>
+          }
+        ></Route>
         <Route path="*" element={<ErrorPage />} />
       </Routes>
       <FooterBar />

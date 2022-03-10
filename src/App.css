@@ -24,3 +24,17 @@
   margin: 0px;
 }
 
+.refugees-bg {
+  margin: 0;
+  height: auto;
+  width: 100%;
+  position: no-repeat;
+}
+
+.header_home {
+position: absolute;
+  
+  align-items: center;
+  bottom: 40%;
+  color: white;
+}
