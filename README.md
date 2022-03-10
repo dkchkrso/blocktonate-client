@@ -2,7 +2,7 @@
 
 #### Description of the project
 
-xxx
+BLOCKTONATE is an online platform that directly connect donations to the individual refugee through the use of blockchain technology.
 
 #### Screenshot
 

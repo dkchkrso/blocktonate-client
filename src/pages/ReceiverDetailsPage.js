@@ -1,14 +1,16 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { Link, useParams } from "react-router-dom";
-import { Card, Image, ProgressBar, Button, Carousel, Container, Row } from "react-bootstrap/";
-
+import { Card, Image, ProgressBar, Button, Carousel, Container } from "react-bootstrap/";
+import { ApiUrlContext } from "../context/api.context";
 
 // const API_URL = "http://localhost:5005";
-const API_URL = "https://blocktonate.herokuapp.com";
-
+// const API_URL = "https://blocktonate.herokuapp.com";
 
 function ReceiverDetailsPage(props) {
+  const value = useContext(ApiUrlContext);
+  const API_URL = value;
+
   const [receiver, setReceiver] = useState(null);
 
   const { id } = useParams();

@@ -3,11 +3,17 @@ import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap/";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { ApiUrlContext } from "../context/api.context";
 
 // const API_URL = "http://localhost:5005";
-const API_URL = "https://blocktonate.herokuapp.com";
+// const API_URL = "https://blocktonate.herokuapp.com";
+
 
 function EditReceiverPage(props) {
+  const value = useContext(ApiUrlContext);
+  const API_URL = value;
+
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [walletAddress, setWalletAddress] = useState("");

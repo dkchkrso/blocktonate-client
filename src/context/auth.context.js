@@ -1,12 +1,19 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useContext } from "react";
+import { ApiUrlContext } from "../context/api.context";
+
+
 
 // const API_URL = "http://localhost:5005";
-const API_URL = "https://blocktonate.herokuapp.com";
+// const API_URL = "https://blocktonate.herokuapp.com";
 
 const AuthContext = React.createContext();
 
 function AuthProviderWrapper(props) {
+  const value = useContext(ApiUrlContext);
+  const API_URL = value;
+
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [user, setUser] = useState(null);

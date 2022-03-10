@@ -1,10 +1,16 @@
 import { useState } from "react";
 import axios from "axios";
+import { Button } from "react-bootstrap/";
+import { useContext } from "react";
+import { ApiUrlContext } from "../context/api.context";
 
 // const API_URL = "http://localhost:5005";
-const API_URL = "https://blocktonate.herokuapp.com";
+// const API_URL = "https://blocktonate.herokuapp.com";
 
 function AddReceiver(props) {
+  const value = useContext(ApiUrlContext);
+  const API_URL = value;
+
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [walletAddress, setWalletAddress] = useState("");
@@ -60,40 +66,39 @@ function AddReceiver(props) {
       <h3>Request new donation</h3>
 
       <form onSubmit={handleSubmit}>
-        
-          <label>Name:</label>
-          <input
-            type="text"
-            name="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            placeholder="Name"
-            required
-          />
-          <label>Description:</label>
-          <textarea
-            type="text"
-            name="description"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-          />
-          <label>Wallet Address:</label>
-          <textarea
-            type="text"
-            name="walletAddress"
-            value={walletAddress}
-            onChange={(e) => setWalletAddress(e.target.value)}
-            placeholder="e.g. 0xda1c662dc96FCad610BBf97c9a2E2A3944E93a69 "
-            required
-          />
-          <label>Asking Amount:</label>
-          <textarea
-            type="number"
-            name="askingAmount"
-            value={askingAmount}
-            onChange={(e) => setAskingAmount(e.target.value)}
-          />
-          {/* <label>Received Amount:</label>
+        <label>Name:</label>
+        <input
+          type="text"
+          name="name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          placeholder="Name"
+          required
+        />
+        <label>Description:</label>
+        <textarea
+          type="text"
+          name="description"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+        />
+        <label>Wallet Address:</label>
+        <textarea
+          type="text"
+          name="walletAddress"
+          value={walletAddress}
+          onChange={(e) => setWalletAddress(e.target.value)}
+          placeholder="e.g. 0xda1c662dc96FCad610BBf97c9a2E2A3944E93a69 "
+          required
+        />
+        <label>Asking Amount:</label>
+        <textarea
+          type="number"
+          name="askingAmount"
+          value={askingAmount}
+          onChange={(e) => setAskingAmount(e.target.value)}
+        />
+        {/* <label>Received Amount:</label>
           <textarea
             type="number"
             name="receivedAmount"
@@ -101,28 +106,28 @@ function AddReceiver(props) {
             onChange={(e) => setReceivedAmount(e.target.value)}
             disabled
           /> */}
-          <label>Currency:</label>
-          <textarea
-            type="text"
-            name="currency"
-            value={currency}
-            onChange={(e) => setCurrency(e.target.value)}
-          />
-          <label>Categories:</label>
-          <textarea
-            type="text"
-            name="categories"
-            value={categories}
-            onChange={(e) => setCategories(e.target.value)}
-          />
-          <label>Image:</label>
-          <textarea
-            type="text"
-            name="imageURL"
-            value={imageURL}
-            onChange={(e) => setImageURL(e.target.value)}
-          />
-          <button type="submit">Submit</button>
+        <label>Currency:</label>
+        <textarea
+          type="text"
+          name="currency"
+          value={currency}
+          onChange={(e) => setCurrency(e.target.value)}
+        />
+        <label>Categories:</label>
+        <textarea
+          type="text"
+          name="categories"
+          value={categories}
+          onChange={(e) => setCategories(e.target.value)}
+        />
+        <label>Image:</label>
+        <textarea
+          type="text"
+          name="imageURL"
+          value={imageURL}
+          onChange={(e) => setImageURL(e.target.value)}
+        />
+        <Button type="submit">Submit</Button>
       </form>
     </div>
   );

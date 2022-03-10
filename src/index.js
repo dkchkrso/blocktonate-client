@@ -7,13 +7,16 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import { BrowserRouter as Router } from "react-router-dom";
 import { AuthProviderWrapper } from "./context/auth.context";
+import { ApiUrlProviderWrapper } from "./context/api.context";
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <AuthProviderWrapper>
-        <App />
-      </AuthProviderWrapper>
+      <ApiUrlProviderWrapper>
+        <AuthProviderWrapper>
+          <App />
+        </AuthProviderWrapper>
+      </ApiUrlProviderWrapper>
     </Router>
   </React.StrictMode>,
   document.getElementById("root")

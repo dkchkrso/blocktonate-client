@@ -14,6 +14,8 @@ import ReceiverDetailsPage from "./pages/ReceiverDetailsPage";
 import EditReceiverPage from "./pages/EditReceiverPage";
 import StartPaymentPage from "./pages/StartPaymentPage";
 import ProfilePage from "./pages/ProfilePage";
+import ErrorPage from "./pages/ErrorPage";
+import AboutPage from "./pages/AboutPage";
 
 
 function App() {
@@ -71,6 +73,9 @@ function App() {
             </IsAnon>
           }
         />
+
+        <Route path="/about" element={<AboutPage />}></Route>
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
       <FooterBar />
     </div>

@@ -4,13 +4,19 @@ import { Link } from "react-router-dom";
 import { Container, Card, Row, Col, Image, ProgressBar} from "react-bootstrap/";
 import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";
-
+import { ApiUrlContext } from "../context/api.context";
 
 // const API_URL = "http://localhost:5005";
-const API_URL = "https://blocktonate.herokuapp.com";
+// const API_URL = "https://blocktonate.herokuapp.com";
+
 
 function ReceiverListPage() {
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
+  const value = useContext(ApiUrlContext);
+  const API_URL = value;
+
+  console.log("API_URL   " + API_URL);
+  console.log("value   " + value);
 
   const [receivers, setReceivers] = useState([]);
 

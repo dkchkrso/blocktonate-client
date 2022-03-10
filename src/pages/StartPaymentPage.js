@@ -1,15 +1,19 @@
 import React from 'react';
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import StartPayment from "../components/StartPayment";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { Container, Button } from "react-bootstrap/";
 import { Link } from "react-router-dom";
+import { ApiUrlContext } from "../context/api.context";
 
 // const API_URL = "http://localhost:5005";
-const API_URL = "https://blocktonate.herokuapp.com";
+// const API_URL = "https://blocktonate.herokuapp.com";
 
 function StartPaymentPage(props) {
+  const value = useContext(ApiUrlContext);
+  const API_URL = value;
+
   const [name, setName] = useState("");
   const [walletAddress, setWalletAddress] = useState("");
   const [askingAmount, setAskingAmount] = useState(0);

@@ -3,10 +3,14 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 import { Button } from "react-bootstrap/";
+import { ApiUrlContext } from "../context/api.context";
 // const API_URL = "http://localhost:5005";
-const API_URL = "https://blocktonate.herokuapp.com";
+// const API_URL = "https://blocktonate.herokuapp.com";
 
 function LoginPage(props) {
+  const value = useContext(ApiUrlContext);
+  const API_URL = value;
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
@@ -28,10 +32,10 @@ function LoginPage(props) {
         // Request to the server's endpoint `/auth/login` returns a response
         // with the JWT string ->  response.data.authToken
         console.log("JWT token", response.data.authToken);
-        
+
         storeToken(response.data.authToken);
 
-        authenticateUser();  
+        authenticateUser();
 
         navigate("/");
       })

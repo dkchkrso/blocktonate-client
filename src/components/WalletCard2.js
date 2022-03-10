@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { ethers } from "ethers";
 import { Button } from "react-bootstrap/";
-//import "./WalletCard.css";
+
 
 const WalletCard = () => {
   const [errorMessage, setErrorMessage] = useState(null);

@@ -34,7 +34,9 @@ function FooterBar() {
                   <i className="fas fa-gem me-3"></i>BLOCKTONATE
                 </h6>
                 <p>
-                  BLOCKTONATE is an online platform that connects economical donations directly with the people in need though the use of blockchain technology.
+                  BLOCKTONATE is an online platform that directly connect
+                  donations to the individual refugee through the use of
+                  blockchain technology.
                 </p>
               </div>
               <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">

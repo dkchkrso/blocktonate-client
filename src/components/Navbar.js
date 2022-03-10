@@ -31,13 +31,19 @@ function Navbar() {
         {isLoggedIn && (
           <div>
             <Link to="/receivers">
-              <Button>Receivers</Button>
+              <Button className="sign-up-btn">Receivers</Button>
             </Link>
             <WalletCard />
             <Link to="/profile">
-              <Button variant="light">Profile</Button>
+              <Button className="sign-up-btn" variant="light">
+                Profile
+              </Button>
             </Link>
-            <Button onClick={logOutUser} variant="light">
+            <Button
+              className="sign-up-btn"
+              onClick={logOutUser}
+              variant="light"
+            >
               Logout
             </Button>
           </div>

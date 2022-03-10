@@ -14,11 +14,16 @@ import {
 } from "react-bootstrap/";
 import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";
+import { ApiUrlContext } from "../context/api.context";
 
 // const API_URL = "http://localhost:5005";
-const API_URL = "https://blocktonate.herokuapp.com";
+// const API_URL = "https://blocktonate.herokuapp.com";
+
+
 
 function ReceiverListPage() {
+  const value = useContext(ApiUrlContext);
+  const API_URL = value;
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
 
   const [receivers, setReceivers] = useState([]);
