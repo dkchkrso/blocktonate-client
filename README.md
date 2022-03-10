@@ -2,77 +2,114 @@
 
 #### Description of the project
 
-BLOCKTONATE is an online platform that directly connect donations to the individual refugee through the use of blockchain technology.
+BLOCKTONATE is an online platform that directly connect donations to the individual refugee through the use of blockchain technology. A donator can browse through refugees and chose whom to support. After selection the donator can connect to his/her MetaMask wallet and transfer crypto currency directly to the selected refugees wallet.  
 
 #### Screenshot
 
-![screenshot of the app](https://github.com/ElisaMamolo/the-ocean/blob/master/public/images/screnshoot.PNG)
+![screenshot of the app](https://github.com/dkchkrso/blocktonate-client/blob/master/public/images/Screenshot1.jpg)
+
+![screenshot of the app](https://github.com/dkchkrso/blocktonate-client/blob/master/public/images/Screenshot2.jpg)
+
+![screenshot of the app](https://github.com/dkchkrso/blocktonate-client/blob/master/public/images/Screenshot5.jpg)
+
+![screenshot of the app](https://github.com/dkchkrso/blocktonate-client/blob/master/public/images/Screenshot8.jpg)
 
 #### Wireframes
 
-Before starting developing we have defined a initial structure of our pages and we have defined a set of MVP functionalities.
+Initial wirefram defining the structure and layout of the pages .
 
-- Landing page wireframe
-  ![Wireframe landingpage](https://github.com/ElisaMamolo/the-ocean/blob/master/public/images/landingpage.PNG)
-- Landing page wireframe if logged in
-  ![Wireframe if logged in](https://github.com/ElisaMamolo/the-ocean/blob/master/public/images/wireframe2.PNG)
-- User page wireframe
-  ![Wireframe user page](https://github.com/ElisaMamolo/the-ocean/blob/master/public/images/wireframe3.PNG)
+- Landing page after authentication
+  ![Wireframe landingpage](https://github.com/dkchkrso/blocktonate-client/blob/master/public/images/wireframe1.jpg)
+- Requesting new donation
+  ![Wireframe if logged in](https://github.com/dkchkrso/blocktonate-client/blob/master/public/images/wireframe2.jpg)
+- Profile info
+  ![Wireframe user page](https://github.com/dkchkrso/blocktonate-client/blob/master/public/images/wireframe3.jpg)
 
 #### User Stories
-
-- As a user visiting BLOCKTONATE I would like to view all the receivers
-
-- As a user visiting BLOCKTONATE I would view more details on a selected receiver
 
 - As a user visiting BLOCKTONATE I would like to be able to Signup
 
 - As a user visiting BLOCKTONATE I would like to be able to Login
 
+- As a user visiting BLOCKTONATE I would like to be able to Sign out
+
+- As a user visiting BLOCKTONATE I would like to view all the refugees
+
+- As a user visiting BLOCKTONATE I would view more details on a selected refugees
+
 - As a user visiting BLOCKTONATE I would like to be able to see my profile details
 
-- As an Admin user I would like to be able to add receivers
+- As a user visiting BLOCKTONATE I would like to be able to add a new request for donation
 
-- As an Admin user I would like to be able to delete receivers
+- As a user visiting BLOCKTONATE I would like to be able to delete my existing requests
 
-- As an Admin user I would like to be able to edit NFT receivers
+- As a user visiting BLOCKTONATE I would like to be able to edit NFT receivers
+
+- As a user visiting BLOCKTONATE I would like to be able to connect to my MetaMask wallet
+
+- As a user visiting BLOCKTONATE I would like to be able to transfer crypto currency to the selected refugees crypto wallet
+
+- As a user visiting BLOCKTONATE I would like to be able to see the transaction on Etherscan
+
 
 #### Technologies Used
 
 :computer:
 
-- React
+- ReactJS
+- NodeJS
 - Express
-- MongoDB & Mongoose
-- Heroku - app deployment
-- Bootstrap
+- MongoDB Atlas & Mongoose
+- Heroku
+- Netlify
+- React Bootstrap
 
 #### Models
 
-xxxx To be adjusted xxxx
-
-
-There are 2 types of users, admin and normal users.\
-Admin can create, edit and delete receivers\
-User can donate to a receiver and create a request for donation 
 
 ##### User Model
 
-Pregenerated with ironlauncher and enhanced\
+Pre-generated with ironlauncher and enhanced\
+
 Properties:
 
-- username: { type: String, required: true, unique: true,},
-- password: String,
+- email: { type: String, unique: true, required: true },
+- password: { type: String, required: true },
+- name: { type: String, required: true },
 - isAdmin: { type: Boolean, default: false },
-- Badges: [{ type: Schema.Types.ObjectId, ref: "Badge" }],
+- profilePic: { type: String },
+- supported: [{ type: Schema.Types.ObjectId, ref: "Receiver" }],
+- supporterFav: [{ type: Schema.Types.ObjectId, ref: "Receiver" }],
+- contributed: { type: Number },
+- nfts: [{ type: Schema.Types.ObjectId, ref: "NFT" }],
 
-##### Badge Model
+##### Receiver Model
+
+Properties:\
+
+- name: String,
+- description: String,
+- walletAddress: String,
+- askingAmount: Number,
+- receivedAmount: Number,
+- currency: String,
+- imageURL: String,
+
+##### NFT Model
 
 Properties:\
 
 - name, { type: String },
 - image: String,
 - owner: { type: Schema.Types.ObjectId, ref: "User" },
+
+const NFTSchema = new Schema({
+  title: String,
+  description: String,
+  imageURL: String,
+  users: { type: Schema.Types.ObjectId, ref: "User" },
+});
+
 
 #### Server routes table(Method, Route or URL, Description as columns)
 
