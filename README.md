@@ -1,10 +1,10 @@
-### BLOCKTONATE
+# BLOCKTONATE
 
-#### Description of the project
+## Description of the project
 
 BLOCKTONATE is an online platform that directly connect donations to the individual refugee through the use of blockchain technology. A donator can browse through refugees and chose whom to support. After selection the donator can connect to his/her MetaMask wallet and transfer crypto currency directly to the selected refugees wallet.  
 
-#### Screenshot
+## Screenshot
 
 ![screenshot of the app](https://github.com/dkchkrso/blocktonate-client/blob/master/public/images/Screenshot1.jpg)
 
@@ -14,7 +14,7 @@ BLOCKTONATE is an online platform that directly connect donations to the individ
 
 ![screenshot of the app](https://github.com/dkchkrso/blocktonate-client/blob/master/public/images/Screenshot8.jpg)
 
-#### Wireframes
+## Wireframes
 
 Initial wirefram defining the structure and layout of the pages .
 
@@ -25,7 +25,7 @@ Initial wirefram defining the structure and layout of the pages .
 - Profile info
   ![Wireframe user page](https://github.com/dkchkrso/blocktonate-client/blob/master/public/images/wireframe3.jpg)
 
-#### User Stories
+## User Stories
 
 - As a user visiting BLOCKTONATE I would like to be able to Signup
 
@@ -51,27 +51,58 @@ Initial wirefram defining the structure and layout of the pages .
 
 - As a user visiting BLOCKTONATE I would like to be able to see the transaction on Etherscan
 
+# Frontend/Client
 
-#### Technologies Used
+## React Router Routes
 
-:computer:
+| Path                 | Component          | Permissions                            | Behavior                                                         |
+| -------------------- | ---------------    | -------------------------------------- | ---------------------------------------------------------------- |
+| `/`                  | HomePage           | public                                 | Homepage                                                         |
+| `*`                  | 404                | public                                 | Custom 404 message                                               |
+| `/about`             | AboutPage          | anonymous user only `<isAnon>`         | About BLOCKTONATE                                                |
+| `/login`             | LoginPage          | anonymous user only `<isAnon>`         | Login form navigates to the home page after login.               |
+| `/signup`            | SignupPage         | anonymous user only `<isAnon>`         | Signup form navigates to the login page after signup.            |
+| `/receivers`         | ReceiverListPage   | authenticated user only `<IsPrivate> ` | List all receivers in database                                   |
+| `/receivers/:id`     | ReceiverDetailsPage| authenticated user only `<IsPrivate> ` | Receiver details for specific receiver                           |
+| `/receivers/edit/:id`| EditReceiverPage   | authenticated user only `<IsPrivate> ` | Form to edit a new request for donation                          |
+| `/request`           | AddReceiverPage    | authenticated user only `<IsPrivate> ` | Form to request a new donation                                   |
+| `/profile`           | ProfilePage        | authenticated user only `<IsPrivate> ` | user profiles info.                                              |
 
-- ReactJS
-- NodeJS
-- Express
-- MongoDB Atlas & Mongoose
-- Heroku
-- Netlify
-- React Bootstrap
+## Components
 
-#### Models
+### Pages
+- AboutPage
+- AddReceiverPage
+- EditReceiverPage
+- ErrorPage
+- HomePage
+- LoginPage
+- ProfilePage
+- ReceiverDetailsPage
+- ReceiverListPage
+- SignupPage
+- StartPaymentPage
 
+### Components
+- AddReceiver
+- ErrorMessage
+- FooterBar
+- IsAnon
+- IsPrivate
+- NavBar
+- ReceiverListHome
+- SearchBar
+- StartPayment
+- TxList
+- WalletCard
 
-##### User Model
+# Backend/Server
 
-Pre-generated with ironlauncher and enhanced\
+## Models
 
-Properties:
+### User Model
+
+Properties:\
 
 - email: { type: String, unique: true, required: true },
 - password: { type: String, required: true },
@@ -83,75 +114,84 @@ Properties:
 - contributed: { type: Number },
 - nfts: [{ type: Schema.Types.ObjectId, ref: "NFT" }],
 
-##### Receiver Model
+### Receiver Model
 
 Properties:\
 
-- name: String,
-- description: String,
-- walletAddress: String,
-- askingAmount: Number,
-- receivedAmount: Number,
-- currency: String,
-- imageURL: String,
+name: { type: String, required: true },
+- description: { type: String },
+- walletAddress: { type: String },
+- askingAmount: { type: Number, required: true },
+- receivedAmount: { type: Number },
+- currency: { type: String, required: true },
+- imageURL: { type: String },
 
-##### NFT Model
+### NFT Model
 
 Properties:\
 
-- name, { type: String },
-- image: String,
-- owner: { type: Schema.Types.ObjectId, ref: "User" },
+- title: { type: String, unique: true, required: true },
+- description: { type: String },
+- imageURL: { type: String },
+- users: { type: Schema.Types.ObjectId, ref: "User" },
+    
 
-const NFTSchema = new Schema({
-  title: String,
-  description: String,
-  imageURL: String,
-  users: { type: Schema.Types.ObjectId, ref: "User" },
-});
+## API Endpoints (backend routes)
+| HTTP Method | URL                          | Request body                                                                            |   Description     |
+| ----------- | ---------------------------- | --------------                                                                          |  ---------------- |
+| GET         | ´/api´                       |                                                                                         | Retrieves all of the receivers
+| POST        | ´/auth/signup´               |  `{email, password, name}`                                                              | Creates a new user in the database
+| POST        | ´/auth/login´                |  `{email, password}`                                                                    | Verifies email and password and returns a JWT
+| GET         | ´/auth/verify´               |                                                                                         | Used to verify JWT stored on the client
+| GET         | ´/api/receivers´             |                                                                                         | Retrieves all of the receivers
+| POST        | ´/api/receiver´              |  `{ name, description, walletAddress, askingAmount, receivedAmount, currency, imageURL}`| Creates a new receiver
+| GET         | ´/api/receivers/:receiverId´ |                                                                                         | Retrieves a specific receiver by id 
+| PUT         | ´/api/receivers/:receiverId´ |  `{ name, description, walletAddress, askingAmount, receivedAmount, currency, imageURL}`| Updates a specific receiver by id
+| DELETE      | ´/api/receivers/:receiverId´ |                                                                                         | Deletes a specific receiver by id
+| GET         | ´/api/nft´                   |                                                                                         | Retrieves all of the nfts
+| POST        | ´/api/nft´                   |                                                                                         | Creates a new nft
+| GET         | ´/api/nft/:nftId´            |                                                                                         | Retrieves a specific nft by id
+| PUT         | ´/api/nfts/:nftId´           |  `{title, description, imageURL}`                                                       | Updates a specific nft by id
+| DELETE      | ´/api/nfts/:nftId´           |                                                                                         | Deletes a specific nft by id
+                           
 
-
-#### Server routes table(Method, Route or URL, Description as columns)
-
-xxxx To be adjusted xxxx
-
-|     | route               | description                                                                                                                      |     |
-| --- | ------------------- | -------------------------------------------------------------------------------------------------------------------------------- | --- |
-|     | ---auth---          | -------------------------------------------------------------------------------------------------------------------------------- |     |
-|     | /signup             | get and post for showing the form and to signup                                                                                  |     |
-|     | /login              | get and post for showing the form and to login                                                                                   |     |
-|     | /logout             | logout and redirect to homepage                                                                                                  |     |
-|     | /details            | get user details and show its asset, render auth/user-detail                                                                     |     |
-|     | ---nft---           | -------------------------------------------------------------------------------------------------------------------------------- |     |
-|     | /create             | get and post for creating a new nft redirect to nft/create and index                                                             |     |
-|     | /nfts/:nftId/edit   | get nft by id and edit it with post                                                                                              |     |
-|     | /nfts/:nftId/delete | post to delete an nft by id                                                                                                      |     |
-|     | /nfts/:nftId/buy    | post, validate if can afford and if token is not alrady of the user, then change owner and subtract token from buyer and seller  |     |
-|     | ---index---         | -------------------------------------------------------------------------------------------------------------------------------- |     |
-|     | /                   | get all the nfts and render index                                                                                                |     |
-
-#### Project Link
-
-Link to webpage
-
-#### Future Work
+## Future Work
 
 :wrench:
 
-- Work1  
-- Work2
+- Enhance Profile Info page (Receiver backed by user and favorites func.)  
+- Enhance NFT functionality
+- Enrich NFT rewarding system
+- Implement search bar
+- Implement filter toggles
+- Implement categories in forms
+- Implement light/dark theme
 
 :wrench:
 
-#### Resources
+## Technologies Used
 
-- Bootstrap templates for divs and cards structure
-- Ironlauncher npm package - for generating the structure of the project and for handling authorization
-- ether npm package for connecting to MetaMask wallet
-- 
+:computer:
 
-#### Team members
+- ReactJS
+- NodeJS
+- Express
+- MongoDB Atlas & Mongoose
+- Heroku
+- Netlify
+- React Bootstrap
+
+## Links
+
+[Client repository Link](https://github.com/dkchkrso/blocktonate-client)
+
+[Server repository Link](https://github.com/dkchkrso/blocktonate-server)
+
+[Deployed Link](https://blocktonate.netlify.app/)
+
+
+## Team members
 
 Christian
 
-#### This is a learning project, if anything needs to be removed please reach out and it will be removed right away.
+### This is a learning project, if anything needs to be removed please reach out and it will be removed right away.
